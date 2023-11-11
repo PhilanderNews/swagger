@@ -1,0 +1,211 @@
+openapi: 3.0.3
+info:
+  title: Dokumen API Cloud Function - OpenAPI 3.0
+  description: >-
+    Jelaskan disini apa saja yang perlu dijelaskan
+    termasuk informasi yang diperlukan untuk dinilai
+    term of service isi dari link repo dari swagger ini
+  termsOfService: https://github.com/PhilanderNews/swagger
+  contact:
+    email: befousmain@gmail.com
+  license:
+    name: Peda Package
+    url: https://pkg.go.dev/github.com/PhilanderNews/Backend
+  version: 1.0.3
+externalDocs:
+  description: Repo GCF
+  url: https://github.com/PhilanderNews/gcf/
+servers:
+  - url: https://asia-southeast2-befous.cloudfunctions.net
+tags:
+  - name: Registrasi
+    description: Membuat akun user dengan password terenkripsi
+    externalDocs:
+      description: Deskripsi dan Kode Program
+      url: https://petapedia.github.io/gcf/get/ #yang ini blom diganti ====================================================================
+  - name: Login
+    description: Mendapatkan token menggunakan akun user yang telah dibuat
+    externalDocs:
+      description: Deskripsi dan Kode Program
+      url: https://petapedia.github.io/gcf/post/ #yang ini blom diganti ====================================================================
+  - name: Delete
+    description: Menghapus akun user yang telah dibuat
+    externalDocs:
+      description: Deskripsi dan Kode Program
+      url: https://petapedia.github.io/gcf/post/ #yang ini blom diganti ====================================================================
+paths:
+  /PhilanderNews-RegistrasiUser:
+    post:
+      tags:
+        - Registrasi
+      summary: Registrasi User
+      description: Membuat akun user dengan password terenkripsi
+      operationId: MembuatUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsernameNPassword'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsernameNPassword'
+      security:
+        - token:
+            - write:apiKey
+            - read:apiKey
+  /PhilanderNews-RegistrasiAdmin:
+    post:
+      tags:
+        - Registrasi
+      summary: Registrasi Admin
+      description: Membuat akun user dengan password terenkripsi
+      operationId: MembuatUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsernameNPassword'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsernameNPassword'
+      security:
+        - token:
+            - write:apiKey
+            - read:apiKey
+  /PhilanderNews-LoginUser:
+    post:
+      tags:
+        - Login
+      summary: Login User
+      description: Masukkan username dan password yang telah didaftarkan
+      operationId: MembuatTokenUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsernameNPassword'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsernameNPassword'
+      security:
+        - token:
+            - write:apiKey
+            - read:apiKey
+  /PhilanderNews-LoginAdmin:
+    post:
+      tags:
+        - Login
+      summary: Login Admin
+      description: Masukkan username dan password yang telah didaftarkan
+      operationId: MembuatTokenUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsernameNPassword'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsernameNPassword'
+      security:
+        - token:
+            - write:apiKey
+            - read:apiKey
+  /PhilanderNews-HapusUser:
+    delete:
+      tags:
+        - Delete
+      summary: Mendapatkan token untuk login
+      description: Masukkan username dan password yang telah didaftarkan
+      operationId: MembuatTokenUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsernameOnly'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsernameOnly'
+      security:
+        - token:
+            - write:apiKey
+            - read:apiKey
+  /PhilanderNews-HapusAdmin:
+    delete:
+      tags:
+        - Delete
+      summary: Mendapatkan token untuk login
+      description: Masukkan username dan password yang telah didaftarkan
+      operationId: MembuatTokenUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsernameOnly'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsernameOnly'
+      security:
+        - token:
+            - write:apiKey
+            - read:apiKey
+components:
+  schemas:
+    UsernameNPassword:
+      type: object
+      properties:
+        username:
+          type: string
+          example: ibrohim
+        password:
+          type: string
+          example: ibrohim
+    UsernameOnly:
+      type: object
+      properties:
+        username:
+          type: string
+          example: ibrohim
+  requestBodies:
+    AuthReq:
+      description: Request Authentication
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Auth'
+    UserArray:
+      description: List of user object
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/AuthResponse'
+  securitySchemes:
+    token:
+      type: apiKey
+      name: token
+      in: header
