@@ -506,7 +506,7 @@ paths:
         - token:
             - write:apiKey
             - read:apiKey
-  /HapusBerita:
+  /HapusKomentar:
     delete:
       tags:
         - Komentar
