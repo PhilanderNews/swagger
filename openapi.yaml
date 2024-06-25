@@ -67,7 +67,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gagal'
       security:
-        - token:
+        - Authorization:
             - write:apiKey
             - read:apiKey
   /Login:
@@ -96,7 +96,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gagal'
       security:
-        - token:
+        - Authorization:
             - write:apiKey
             - read:apiKey
   /TokenValue:
@@ -123,7 +123,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FailedDecodeAuthorization'
       security:
-        - token:
+        - Authorization:
             - write:apiKey
             - read:apiKey
 
@@ -155,7 +155,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gagal'
       security:
-        - token:
+        - Authorization:
             - write:apiKey
             - read:apiKey
   /AmbilSemuaUser:
@@ -182,7 +182,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gagal'
       security:
-        - token:
+        - Authorization:
             - write:apiKey
             - read:apiKey
   /EditUser:
@@ -211,7 +211,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gagal'
       security:
-        - token:
+        - Authorization:
             - write:apiKey
             - read:apiKey
   /HapusUser:
@@ -240,7 +240,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gagal'
       security:
-        - token:
+        - Authorization:
             - write:apiKey
             - read:apiKey
 
@@ -272,7 +272,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gagal'
       security:
-        - token:
+        - Authorization:
             - write:apiKey
             - read:apiKey
   /AmbilSatuBerita:
@@ -301,7 +301,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gagal'
       security:
-        - token:
+        - Authorization:
             - write:apiKey
             - read:apiKey
   /AmbilSemuaBerita:
@@ -328,7 +328,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gagal'
       security:
-        - token:
+        - Authorization:
             - write:apiKey
             - read:apiKey
   /EditBerita:
@@ -357,7 +357,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gagal'
       security:
-        - token:
+        - Authorization:
             - write:apiKey
             - read:apiKey
   /HapusBerita:
@@ -386,7 +386,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gagal'
       security:
-        - token:
+        - Authorization:
             - write:apiKey
             - read:apiKey
 
@@ -418,7 +418,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gagal'
       security:
-        - token:
+        - Authorization:
             - write:apiKey
             - read:apiKey
   /AmbilSatuKomentar:
@@ -447,7 +447,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gagal'
       security:
-        - token:
+        - Authorization:
             - write:apiKey
             - read:apiKey
   /AmbilSemuaKomentar:
@@ -474,7 +474,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gagal'
       security:
-        - token:
+        - Authorization:
             - write:apiKey
             - read:apiKey
   /EditKomentar:
@@ -503,7 +503,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gagal'
       security:
-        - token:
+        - Authorization:
             - write:apiKey
             - read:apiKey
   /HapusKomentar:
@@ -532,7 +532,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gagal'
       security:
-        - token:
+        - Authorization:
             - write:apiKey
             - read:apiKey
 
@@ -740,7 +740,7 @@ components:
             items:
               $ref: '#/components/schemas/AuthResponse'
   securitySchemes:
-    token:
+    Authorization:
       type: apiKey
-      name: token
+      name: Authorization
       in: header
