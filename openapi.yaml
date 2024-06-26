@@ -40,7 +40,35 @@ tags:
       url: https://petapedia.github.io/gcf/post/ #yang ini blom diganti ====================================================================
 paths:
 # ------------------------- Authorization
-
+  /GenerateVerifikasi:
+    post:
+      tags:
+        - Authorization
+      summary: GenerateVerifikasi
+      description: Generate kode verifikasi
+      operationId: GenerateKode
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FormatGenerateVerifikasi'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Berhasil'
+        '400':
+          description: failed operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gagal'
+      security:
+        - Authorization:
+            - write:apiKey
+            - read:apiKey
   /Registrasi:
     post:
       tags:
@@ -538,6 +566,11 @@ paths:
 
 components:
   schemas:
+    # ----------------------------- Schema struct User
+    FormatGenerateVerifikasi:
+      example:
+        nowa: "6281271720763"
+        username: "contoh"
     # ----------------------------- Schema struct User
     FormatUser:
       example:
