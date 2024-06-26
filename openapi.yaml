@@ -576,7 +576,7 @@ components:
       example:
         name: "Contoh"
         email: "contoh@gmail.com"
-        no_whatsapp: "6281271720763"
+        nowa: "6281271720763"
         username: "contoh"
         password: "contoh"
         role: "admin"
