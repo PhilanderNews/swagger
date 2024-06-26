@@ -566,7 +566,7 @@ paths:
 
 components:
   schemas:
-    # ----------------------------- Schema struct User
+    # ----------------------------- Schema struct Verifikasi
     FormatGenerateVerifikasi:
       example:
         nowa: "6281271720763"
@@ -580,6 +580,7 @@ components:
         username: "contoh"
         password: "contoh"
         role: "admin"
+        kode: "123456789012"
     FormatLoginUser:
       example:
         username: "contoh"
